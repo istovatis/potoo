@@ -1,0 +1,10 @@
+{% if latest_pots_list %}
+    <ul>
+    {% for pot in latest_pots_list %}
+        <p>{{ pot.text }} at {{ pot.time_created }}</p>
+        <li><a href="/pots/{{ pot.pot_id }}/">Details</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No pots are available.</p>
+{% endif %}
