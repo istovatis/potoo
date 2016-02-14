@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'pots/(?P<id>.+)/$', views.detail, name='detail'),
+    url(r'user/(?P<id>.+)/$', views.user_detail, name='user_detail'),
+
 ]

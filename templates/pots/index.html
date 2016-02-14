@@ -1,3 +1,11 @@
+<form  method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input id="pot_text" type="text" name="pot_text" value="{{ current_text }}">
+    <input type="submit" value="Pot" />
+</form>
+
+
 {% if latest_pots_list %}
     <ul>
     {% for pot in latest_pots_list %}
