@@ -15,6 +15,12 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
+def detail(request, id):
+    try:
+        question = Pot.objects.get(pot_id=id)
+    except Pot.DoesNotExist:
+        raise Http404("Oops... Not pot")
+    return render(request, 'pots/detail.html', {'pot': question})
 
 
 

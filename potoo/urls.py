@@ -20,4 +20,5 @@ from app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'pots/(?P<id>.+)/$', views.detail, name='detail'),
 ]
