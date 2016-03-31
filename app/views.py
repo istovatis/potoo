@@ -1,3 +1,4 @@
+from django.core import serializers
 from django.http import Http404
 from django.views.generic import View
 
@@ -37,7 +38,7 @@ def user_detail(request, id):
         latest_user_pots_list = sorted(Pot.objects.all().filter(creator=id), key=lambda n: n.time_created, reverse=True)
     except Pot.DoesNotExist:
         raise Http404("Oops... Not such user")
-    return render(request, 'users/index.html', {'latest_pots_list': latest_user_pots_list})
+    return render(request, 'users/index.html', serializers.serialize('json', latest_user_pots_list))
 
 
 
